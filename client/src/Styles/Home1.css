@@ -1,0 +1,133 @@
+
+.Trans_main{
+    display:flex;
+    flex-direction:row;
+    width:90%;
+   
+    padding:50px;
+    gap:10px;
+    height:50vh;
+    border-radius:10px;
+    box
+}
+textarea{
+     background: none;
+}
+.Sub_main{
+    display:flex;
+    backdrop-filter: blur(30px);
+    flex-direction:column;
+    height:100%;
+    width:100%;
+    border:1px solid #5A72A0;
+    padding:10px;
+    border-radius:10px;
+    gap:10px;
+   
+   
+}
+.Trans{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    padding:30px;
+    align:center;
+    text-align:center;
+    
+}
+.Sub_main select{
+    height:10%;
+    border:none;
+     font-size:20px;
+     color: white;
+     width: 20%;
+     margin-left:80%;
+     
+}/* Home1.css */
+.custom-select-wrapper {
+    position: relative;
+    backdrop-filter: blur(20px);
+    width: 200px;
+    font-family: Arial, sans-serif;
+    left: 30%;
+}
+
+.custom-select-trigger {
+   
+    padding: 10px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#option{
+    
+}
+.custom-options {
+    position: absolute;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 20px;
+    margin-top: 5px;
+    z-index: 1000;
+    border: 1px solid #5A72A0;
+   
+}
+.custom-option {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+
+}
+.custom-option::-webkit-scrollbar{
+    width: 4px;
+}
+.custom-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.Trans {
+    text-align: center;
+    padding: 20px;
+}
+
+.Trans_main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.Sub_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.Sub_main textarea{
+    resize:none;
+    outline: none;
+    height:100%;
+    border:none;
+     font-size:20px;
+     color: aliceblue;
+      font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+button{
+    width: 20%;
+    margin-left:80%;
+    background: none;
+    border: 1px solid #5A72A0;
+    backdrop-filter: blur(10px);
+    background-color: #5A72A0;
+    color:white;
+    padding :5px;
+    border-radius:5px;
+}
