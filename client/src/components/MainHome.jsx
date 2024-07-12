@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import BottomNav from './BottomNav';
 import mainThemeGif from '../assets/MainTheme.gif';
 import '../Styles/MainHome.css';
-
+import { ThreeDCardDemo } from './3dcard';
 const words = [
   {
     title: "Ui / UX Design",
@@ -37,6 +37,7 @@ function MainHome() {
   return (
     <div className='MainHome'>
       <div className='imgcnt'>
+      
         <img src={mainThemeGif} alt='Main Theme' className='imgcontent' />
         <div id="words" className={fadeClass}>
           <span id='head'>{words[index].heading}</span>
@@ -63,6 +64,7 @@ function MainHome() {
           Text
         </span>
       </div>
+      
       <BottomNav />
     </div>
   );
