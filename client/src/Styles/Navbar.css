@@ -1,8 +1,12 @@
 .Navbar{
     display: flex;
     flex-direction: row;
+     width: 100%;
 }
-
+.section2{
+    margin-left: 85%;
+    padding-top: 35px;
+}
 .red{
     color: red;
 
@@ -32,4 +36,11 @@ h1{
     justify-content: center;
     color: #EEEEEE;
     height: 70px;
+}
+.logout-button {
+    background-color: #97fc4e;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
 }

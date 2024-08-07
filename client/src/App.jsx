@@ -8,12 +8,16 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import History from './components/History';
 import PrivateRoute from './components/PrivateRoute';
+import Spline from '@splinetool/react-spline';
 
 function App() {
   return (
     <BrowserRouter>
       <div className='App'>
         <Navbar />
+        <Spline className='fixed' style={{ zIndex: -1 }}
+        scene="https://prod.spline.design/QNi9IJ5ntYZIcYfr/scene.splinecode" 
+        />
         <Routes>
           <Route path="/home1" element={<PrivateRoute element={<Home1 />} />} />
           <Route path="/" element={<PrivateRoute element={<MainHome />} />} />

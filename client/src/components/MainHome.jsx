@@ -4,6 +4,8 @@ import BottomNav from './BottomNav';
 import mainThemeGif from '../assets/MainTheme.gif';
 import '../Styles/MainHome.css';
 import { ThreeDCardDemo } from './3dcard';
+import Spline from '@splinetool/react-spline';
+import svg from "../assets/mainimg.svg"
 const words = [
   {
     title: "Ui / UX Design",
@@ -24,10 +26,10 @@ function MainHome() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFadeClass(''); // Reset fade class
+      setFadeClassName(''); // Reset fade class
       setTimeout(() => {
         setIndex((prevIndex) => (prevIndex + 1) % words.length);
-        setFadeClass('fade');
+        setFadeClassName('fade');
       }, 1000); // Transition delay
     }, 7000); // Change text every 7 seconds
 
@@ -38,7 +40,7 @@ function MainHome() {
     <div className='MainHome'>
       <div className='imgcnt'>
       
-        <img src={mainThemeGif} alt='Main Theme' className='imgcontent' />
+        <img src={svg} alt='Main Theme' className='imgcontent' />
         <div id="words" className={fadeClass}>
           <span id='head'>{words[index].heading}</span>
           <p>{words[index].content}</p>
@@ -64,7 +66,6 @@ function MainHome() {
           Text
         </span>
       </div>
-      
       <BottomNav />
     </div>
   );

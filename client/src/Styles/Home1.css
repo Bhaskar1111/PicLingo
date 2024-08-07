@@ -8,7 +8,6 @@
     gap:10px;
     height:50vh;
     border-radius:10px;
-    box
 }
 textarea{
      background: none;
@@ -120,14 +119,38 @@ textarea{
   font-style: normal;
 }
 
-button{
-    width: 20%;
+.but{
+    width: 10%;
     margin-left:80%;
     background: none;
-    border: 1px solid #5A72A0;
+    border: 1px solid #dc37b3;
     backdrop-filter: blur(10px);
-    background-color: #5A72A0;
+    background-color:#dc37b3;
     color:white;
     padding :5px;
     border-radius:5px;
+}
+.but:hover{
+    background-color: transparent;
+    border: 1px solid #dc37b3;
+}
+.Buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.Buttons button{
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    width: 15%;
+    background-color: #dc37b3;
+    transition: ease-in-out;
+}
+.Buttons button:hover{
+    background-color: transparent;
+    border: 1px solid #dc37b3;
 }

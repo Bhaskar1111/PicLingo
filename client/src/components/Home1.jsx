@@ -79,36 +79,67 @@ const Home1 = () => {
   };
 
   return (
-    <div className='Trans'>
-      <h1>Text Translation</h1>
-      <div className='Trans_main'>
-        <div className='Sub_main'>
-          <LanguagesSelect selectedLang={sourceLang} setLang={setSourceLang} />
-          <textarea
-            value={sourceText}
-            placeholder='Something to Translate....'
-            onChange={handleSourceTextChange}
-            rows="4"
-            cols="50"
-          />
-        </div>
-        <div className='Sub_main' id='green'>
-          <LanguagesSelect selectedLang={targetLang} setLang={setTargetLang} />
-          <textarea
-            value={translatedText}
-            readOnly
-            rows="4"
-            cols="50"
-          />
-          <button onClick={() => navigator.clipboard.writeText(translatedText)}>
-            Copy
-          </button>
-        </div>
+    <div className="flex flex-col items-center min-h-screen p-4">
+  <h1 className="text-4xl font-bold text-white mb-8">Text Translation</h1>
+  <div className="w-full max-w-4xl bg-gray-800 p-8 rounded-lg shadow-lg border-2 border-gray-700">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="flex flex-col space-y-6">
+        <LanguagesSelect
+          selectedLang={sourceLang}
+          setLang={setSourceLang}
+          className="w-full p-3 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-gray-600"
+        />
+        <textarea
+          value={sourceText}
+          placeholder="Something to Translate..."
+          onChange={handleSourceTextChange}
+          rows="6"
+          className="w-full p-4 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-gray-600"
+        />
       </div>
-      <button onClick={handleSave}>Save</button>
-      <button onClick={handleClearHistory}>Clear History</button>
-      <button onClick={handleViewHistory}>View History</button>
+      <div className="flex flex-col space-y-6">
+        <LanguagesSelect
+          selectedLang={targetLang}
+          setLang={setTargetLang}
+          className="w-full p-3 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-gray-600"
+        />
+        <textarea
+          value={translatedText}
+          readOnly
+          rows="6"
+          className="w-full p-4 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-gray-600"
+        />
+        <button
+          className="self-start p-3 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 border-2 border-[#9290C3]"
+          onClick={() => navigator.clipboard.writeText(translatedText)}
+        >
+          Copy
+        </button>
+      </div>
     </div>
+    <div className="mt-8 flex space-x-6 justify-center">
+      <button
+        className="p-3 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-[#9290C3]"
+        onClick={handleSave}
+      >
+        Save
+      </button>
+      <button
+        className="p-3 bg-red-600 text-white rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 border-2 border-[#9290C3]"
+        onClick={handleClearHistory}
+      >
+        Clear History
+      </button>
+      <button
+        className="p-3 bg-purple-600 text-white rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 border-2 border-[#9290C3]"
+        onClick={handleViewHistory}
+      >
+        View History
+      </button>
+    </div>
+  </div>
+</div>
+
   );
 };
 
