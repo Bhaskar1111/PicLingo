@@ -4,7 +4,7 @@ import Tesseract from 'tesseract.js';
 import axios from 'axios';
 import _ from 'lodash';
 import LanguagesSelect from './LanguagesSelect';
-import '../Styles/Home1.css';
+import "../Styles/"
 
 const CameraCapture = () => {
   const [sourceText, setSourceText] = useState('');
@@ -79,42 +79,57 @@ const CameraCapture = () => {
   };
 
   return (
-    <div className='Trans'>
-      <h1>Text Extraction and Translation</h1>
-      <div className='Trans_main'>
-        <div className='Sub_main'>
-          <input
-            type="file"
-            accept="image/*"
-            ref={fileInputRef}
-          />
-          <button onClick={handleExtractText}>
-            Extract
-          </button>
-          <LanguagesSelect selectedLang={sourceLang} setLang={setSourceLang} />
-          <textarea
-            value={sourceText}
-            onChange={handleSourceTextChange}
-            rows="4"
-            cols="50"
-            placeholder='Extracted text will appear here...'
-          />
-        </div>
-        <div className='Sub_main' id='green'>
-          <LanguagesSelect selectedLang={targetLang} setLang={setTargetLang} />
-          <textarea
-            value={translatedText}
-            readOnly
-            rows="4"
-            cols="50"
-          />
-          <button onClick={() => navigator.clipboard.writeText(translatedText)}>
-            Copy
-          </button>
-        </div>
+    <div className="p-8 text-white">
+  <h1 className="text-3xl font-bold mb-6 text-center">Text Extraction and Translation</h1>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="p-6 bg-gray-800 rounded-lg shadow-lg flex flex-col">
+    <div className='flex flex-row'>
+    <div className='justify-center align-middle flex flex-col'>
+      <input
+        type="file"
+        accept="image/*"
+        ref={fileInputRef}
+        className="block w-half text-lg text-gray-500 file:mr-4 file:py-3 file:px-2 file:rounded-lg file:border-0 file:text-lg file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700"
+      />
+      <button
+        onClick={handleExtractText}
+        className="mt-6 w-20 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-2 rounded-lg text-lg transition duration-300"
+      >
+        Extract
+      </button>
       </div>
-      {isLoading && <p>Loading...</p>}
+      <div className="">
+        <LanguagesSelect selectedLang={sourceLang} setLang={setSourceLang} />
+      </div>
+      </div>
+      <textarea
+        value={sourceText}
+        onChange={handleSourceTextChange}
+        rows="5"
+        placeholder="Extracted text will appear here..."
+        className="mt-6 w-full p-3 bg-gray-700 rounded-lg border border-gray-600 text-lg focus:outline-none focus:border-blue-500"
+      />
     </div>
+    <div className="p-6 bg-gray-800 rounded-lg shadow-lg flex flex-col">
+      <LanguagesSelect selectedLang={targetLang} setLang={setTargetLang} />
+      <textarea
+        value={translatedText}
+        readOnly
+        rows="5"
+        className="mt-6 w-full p-3 bg-gray-700 rounded-lg border border-gray-600 text-lg focus:outline-none focus:border-blue-500"
+      />
+      <button
+        onClick={() => navigator.clipboard.writeText(translatedText)}
+        className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg text-lg transition duration-300"
+      >
+        Copy
+      </button>
+    </div>
+  </div>
+  {isLoading && <p className="mt-6 text-center text-lg text-gray-400">Loading...</p>}
+</div>
+
+
   );
 };
 
