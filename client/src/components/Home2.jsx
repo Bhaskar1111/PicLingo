@@ -4,7 +4,7 @@ import Tesseract from 'tesseract.js';
 import axios from 'axios';
 import _ from 'lodash';
 import LanguagesSelect from './LanguagesSelect';
-import "../Styles/"
+
 
 const CameraCapture = () => {
   const [sourceText, setSourceText] = useState('');

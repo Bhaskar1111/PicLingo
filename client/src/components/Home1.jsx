@@ -4,6 +4,7 @@ import LanguagesSelect from './LanguagesSelect';
 import '../Styles/Home1.css';
 import _ from 'lodash';
 import { useNavigate } from 'react-router-dom';
+import Features from './Features';
 
 const Home1 = () => {
   const [sourceText, setSourceText] = useState('');
@@ -16,14 +17,12 @@ const Home1 = () => {
   const handleTranslate = async (text) => {
     setIsLoading(true);
     try {
-      console.log(text);
       const response = await axios.post('https://multilingual-text-and-speech-translator.onrender.com/translate-text', {
         text,
         sourceLang,
         targetLang,
       });
       setTranslatedText(response.data.translatedText);
-      console.log(response.data.translatedText);
     } catch (error) {
       console.error('Translation error:', error);
     } finally {
@@ -39,7 +38,7 @@ const Home1 = () => {
     debouncedTranslate(text);
   };
 
-  const handleSave = async () => {
+   const handleSave = async () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post('http://localhost:5000/api/translations/save', 
@@ -97,62 +96,62 @@ const Home1 = () => {
               className="w-full p-4 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-gray-600"
             />
           </div>
-          <div className="flex flex-col space-y-6">
+          <div className="flex flex-col space-y-6 relative">
             <LanguagesSelect
               selectedLang={targetLang}
               setLang={setTargetLang}
               className="w-full p-3 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-gray-600"
             />
-                      {isLoading ? (
-                      <div className='w-full p-4 h-full bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-gray-600'>
-                      <div className="newtons-cradle mt-8">
-                        <div className="newtons-cradle__dot"></div>
-                        <div className="newtons-cradle__dot"></div>
-                        <div className="newtons-cradle__dot"></div>
-                        <div className="newtons-cradle__dot"></div>
-                      </div>
-                      </div>
-                    ) : (
-                      <textarea
-                                  value={translatedText}
-                                  readOnly
-                                  rows="6"
-                                  className="w-full p-4 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-gray-600"
-                         />
-                    )}
-
+              <textarea
+                value={translatedText}
+                readOnly
+                rows="6"
+                className="w-full p-4 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-gray-600"
+                style={{ color: isLoading ? "transparent" : "white" }} // Hides the text during loading
+              />
+              {isLoading && (
+                <div className=" absolute inset-0 flex items-center justify-center bg-opacity-75">
+                  <section className="dots-container">
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                  </section>
+                </div>
+              )}
+            
             <button
-              className="self-start p-3 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 border-2 border-[#9290C3]"
-              onClick={() => navigator.clipboard.writeText(translatedText)}
-            >
-              Copy
-            </button>
+            className="px-6 py-2  text-center text-white bg-violet-600 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring"
+            onClick={() => navigator.clipboard.writeText(translatedText)}
+           >
+          Copy
+        </button>
+
           </div>
         </div>
         <div className="mt-8 flex space-x-6 justify-center">
           <button
-            className="p-3 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 border-2 border-[#9290C3]"
+            className="px-3 py-1  max-w-100 text-center text-white bg-green-600 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring"
             onClick={handleSave}
           >
             Save
           </button>
           <button
-            className="p-3 bg-red-600 text-white rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 border-2 border-[#9290C3]"
+            className="px-6 py-2  text-center text-white bg-red-600 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring"
             onClick={handleClearHistory}
           >
             Clear History
           </button>
           <button
-            className="p-3 bg-purple-600 text-white rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 border-2 border-[#9290C3]"
+            className="px-6 py-2  text-center text-white bg-violet-600 border border-violet-600 rounded active:text-violet-500 hover:bg-transparent hover:text-violet-600 focus:outline-none focus:ring"
             onClick={handleViewHistory}
           >
             View History
           </button>
         </div>
-
-        {/* Newton's Cradle Animation */}
-        
       </div>
+     
     </div>
   );
 };

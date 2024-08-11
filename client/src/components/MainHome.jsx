@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import Aos from 'aos';
 
 import animationData from '../assets/Animation - 1723121703012.json'; // Import your Lottie animation
+import Features from './Features';
 
 const words = [
 
@@ -36,6 +37,7 @@ function MainHome() {
   }, []);
 
   return (
+    <div>
     <div className="MainHome p-6 text-white">
       <div className="imgcnt flex flex-col md:flex-row items-center justify-between">
         <div id="words" className="flex flex-col md:ml-8 gap-4">
@@ -92,6 +94,8 @@ function MainHome() {
         />
       </div>
       <BottomNav />
+    </div>
+    <Features/>
     </div>
   );
 }

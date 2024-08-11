@@ -15,13 +15,15 @@
   position: fixed;
   z-index: -2;
 }
+#features {
+    background: linear-gradient(300deg, #1B1A55, #070F2B, #000000);
+    background-size: 100%;
+}
+#{}
 body {
-  background: linear-gradient(300deg,#1B1A55, #070F2B, #000000);
-    background-size: 180% 180%;
-    animation: gradient-animation 18s ease infinite;
+   
  
   /* Centers the image */
-
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
