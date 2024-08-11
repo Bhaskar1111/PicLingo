@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
 import '../Styles/Navbar.css';
+import Spline from '@splinetool/react-spline';
 
 function Navbar() {
   const navigate = useNavigate(); // React Router's navigate function
@@ -13,6 +14,8 @@ function Navbar() {
     navigate('/login'); // Redirect to login page
   };
 
+  const token = localStorage.getItem('token'); // Check for the presence of the token
+
   return (
     <>
       <div className='Navbar'>
@@ -20,8 +23,11 @@ function Navbar() {
           <h1><b className='red'>P</b>iclingo</h1>
         </div>
         <div className='section2'>
-          {/* Add logout button/link here */}
-          <button onClick={handleLogout} className='logout-button'>Logout</button>
+          {token ? (
+            <button className="button">Log out</button>
+          ):(
+            <h1></h1>
+          )}
         </div>
       </div>
     </>
