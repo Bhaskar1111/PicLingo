@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .App{
   display: flex;
  
@@ -8,9 +11,12 @@
 .App {
   position: relative;
 }
-
+.spline{
+  position: fixed;
+  z-index: -2;
+}
 body {
-  background: linear-gradient(300deg,#810CA8, #2D033B, #000000);
+  background: linear-gradient(300deg,#1B1A55, #070F2B, #000000);
     background-size: 180% 180%;
     animation: gradient-animation 18s ease infinite;
  

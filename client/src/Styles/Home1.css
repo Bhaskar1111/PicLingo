@@ -8,7 +8,6 @@
     gap:10px;
     height:50vh;
     border-radius:10px;
-    box
 }
 textarea{
      background: none;
@@ -120,14 +119,110 @@ textarea{
   font-style: normal;
 }
 
-button{
-    width: 20%;
+.but{
+    width: 10%;
     margin-left:80%;
     background: none;
-    border: 1px solid #5A72A0;
+    border: 1px solid #dc37b3;
     backdrop-filter: blur(10px);
-    background-color: #5A72A0;
+    background-color:#dc37b3;
     color:white;
     padding :5px;
     border-radius:5px;
+}
+.but:hover{
+    background-color: transparent;
+    border: 1px solid #dc37b3;
+}
+.Buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.Buttons button{
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    width: 15%;
+    background-color: #dc37b3;
+    transition: ease-in-out;
+}
+.Buttons button:hover{
+    background-color: transparent;
+    border: 1px solid #dc37b3;
+}
+/* From Uiverse.io by G4b413l */
+.newtons-cradle {
+    --uib-size: 50px;
+    --uib-speed: 1.2s;
+    --uib-color: #474554;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--uib-size);
+    height: var(--uib-size);
+}
+
+.newtons-cradle__dot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+    transform-origin: center top;
+}
+
+.newtons-cradle__dot::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 25%;
+    border-radius: 50%;
+    background-color: var(--uib-color);
+}
+
+.newtons-cradle__dot:first-child {
+    animation: swing var(--uib-speed) linear infinite;
+}
+
+.newtons-cradle__dot:last-child {
+    animation: swing2 var(--uib-speed) linear infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+
+    25% {
+        transform: rotate(70deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes swing2 {
+    0% {
+        transform: rotate(0deg);
+        animation-timing-function: linear;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+
+    75% {
+        transform: rotate(-70deg);
+        animation-timing-function: ease-in;
+    }
 }

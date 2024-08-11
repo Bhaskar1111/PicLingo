@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import '../Styles/App.css'
 const History = () => {
   const [history, setHistory] = useState([]);
 
@@ -28,8 +28,8 @@ const History = () => {
       <ul>
         {history.map((item) => (
           <li key={item._id}>
-            <p><b>Original:</b> {item.originalText}</p>
-            <p><b>Translated:</b> {item.translatedText}</p>
+            <h2><b>Original:</b> {item.originalText}</h2>
+            <h2><b>Translated:</b> {item.translatedText}</h2>
           </li>
         ))}
       </ul>
